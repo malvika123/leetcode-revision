@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "LeetCode Revision v2",
+  "description": "Recommends LeetCode problems to revise based on your submission history. No data collection.",
+  "version": "1.0",
+  "permissions": [
+    "cookies",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://leetcode.com/api/submissions/*",
+    "https://leetcode.com/api/problems/all/"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "coding.png",
+      "48": "coding.png",
+      "128": "coding.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.com/*"
+      ],
+      "js": [
+        "popup.js"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LeetCode Revision Helper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --dark: #0f172a;
+      --border: #e2e8f0;
+      --text-muted: #64748b;
+    }
+    
+    body {
+      width: 300px;
+      padding: 12px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1e293b;
+      background-color: white;
+      line-height: 1.4;
+    }
+    
+    header {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    h1 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      color: var(--dark);
+      letter-spacing: -0.2px;
+    }
+    
+    .logo {
+      width: 24px;
+      height: 24px;
+    }
+    
+    #loginStatus {
+      margin-bottom: 12px;
+    }
+    
+    .status-badge {
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .status-badge .indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    
+    .logged-in {
+      background-color: rgba(22, 163, 74, 0.08);
+      color: var(--success);
+    }
+    
+    .logged-in .indicator {
+      background-color: var(--success);
+    }
+    
+    .logged-out {
+      background-color: rgba(220, 38, 38, 0.08);
+      color: var(--danger);
+    }
+    
+    .logged-out .indicator {
+      background-color: var(--danger);
+    }
+    
+    #status {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin: 8px 0;
+      min-height: 18px;
+    }
+    
+    #analyzeBtn {
+      width: 100%;
+      padding: 8px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 13px;
+      margin: 8px 0;
+    }
+    
+    #analyzeBtn:hover {
+      background: #1d4ed8;
+    }
+    
+    #analyzeBtn:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+    }
+    
+    .section-header {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 16px 0 8px 0;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .question-card {
+      margin: 12px 0;
+      padding: 12px;
+      border-radius: 6px;
+      background: white;
+      border: 1px solid var(--border);
+    }
+    
+    .metric {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    
+    .metric.failed {
+      background-color: rgba(220, 38, 38, 0.08);
+      color: var(--danger);
+    }
+    
+    .metric.less {
+      background-color: rgba(37, 99, 235, 0.08);
+      color: var(--primary);
+    }
+    
+    .question-title {
+      font-weight: 600;
+      margin: 6px 0;
+      font-size: 14px;
+    }
+    
+    .question-stats {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    
+    .practice-btn {
+      display: block;
+      text-align: center;
+      padding: 6px;
+      background: var(--success);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    .no-recommendations {
+      padding: 16px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    .cache-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cache-btn:hover {
+  background: #e0e0e0;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <img src="coding.png" alt="LeetCode" class="logo">
+    <h1>Leetcode Revision Helper</h1>
+  </header>
+  
+  <div id="loginStatus" class="status-badge logged-out">
+    <span class="indicator"></span>
+    <span>Checking login status...</span>
+  </div>
+  
+  <div id="status">Ready to analyze your submissions</div>
+  
+  <button id="analyzeBtn">Get Recommendations</button>
+  
+  <div id="recommendations">
+    <!-- Recommendations will be inserted here -->
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
